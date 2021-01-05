@@ -24,6 +24,11 @@ export const ContactsScene = () => {
   return <AnimatedContacts {...scenePropsAndRef} data={[]} />;
 };
 
+export const ContactsScene2 = () => {
+  const scenePropsAndRef = useCollapsibleScene('contacts2');
+  return <AnimatedContacts {...scenePropsAndRef} data={[]} />;
+};
+
 export const ArticleScene = () => {
   const scenePropsAndRef = useCollapsibleScene('article');
   return <AnimatedArticle {...scenePropsAndRef} />;
@@ -45,13 +50,15 @@ const renderHeader = () => (
 const renderScene = SceneMap({
   albums: AlbumsScene,
   contacts: ContactsScene,
+  contacts2: ContactsScene2,
   article: ArticleScene,
 });
 
 const CollapsibleTabViewExample: ExampleComponentType = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState<Route[]>([
-    { key: 'contacts', title: 'Contacts' },
+    { key: 'contacts', title: 'C1' },
+    { key: 'contacts2', title: 'C2' },
     { key: 'article', title: 'Article' },
     { key: 'albums', title: 'Albums' },
   ]);
